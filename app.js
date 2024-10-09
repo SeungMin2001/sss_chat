@@ -4,7 +4,7 @@ const app = express()
 
 app.use(express.static("public"))
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 3000;
 const websocketPort = PORT + 1 < 65536 ? PORT + 1 : 8001; // 65536을 넘지 않도록 조정
 const wss = new WebSocketServer({ port: websocketPort });
 
