@@ -4,9 +4,11 @@ const app = express()
 
 app.use(express.static("public"))
 
-const PORT = process.env.PORT || 3000;
-const websocketPort = PORT + 1 < 65536 ? PORT + 1 : 8001; // 65536을 넘지 않도록 조정
-const wss = new WebSocketServer({ port: websocketPort });
+const PORT = process.env.PORT || 3000; // 3000은 로컬 개발 시 사용할 포트
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
 
 // HTTP 서버 생성
 //const server = http.createServer(app);
