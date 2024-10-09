@@ -1,13 +1,12 @@
 const express = require("express")
 const { WebSocketServer } = require("ws")
 const app = express()
-
 app.use(express.static("public"))
-const port=process.env.PORT || 8000;
 
-app.listen(8000, () => {
-  console.log(`Example app listening on port 8000`)
-})
+const PORT = process.env.PORT || 8000; // 8000은 로컬 개발용 기본 포트
+app.listen(PORT, () => {
+    console.log(`Example app listening on port ${PORT}`);
+});
 
 
 const wss = new WebSocketServer({ port: 8001 })
