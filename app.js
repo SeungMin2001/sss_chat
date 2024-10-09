@@ -4,11 +4,11 @@ const app = express()
 
 app.use(express.static("public"))
 
-app.listen(8000, () => {
-  console.log(`Example app listening on port 8000`)
-})
-
-const wss = new WebSocketServer({ port: 8001 })
+const PORT = process.env.PORT || 8000; // Heroku 환경 변수를 사용하고, 로컬 테스트용으로 8000 포트를 사용
+app.listen(PORT, () => {
+    console.log(`Example app listening on port ${PORT}`);
+});
+const wss = new WebSocketServer({ port: PORT + 1 });
 
 // HTTP 서버 생성
 //const server = http.createServer(app);
