@@ -4,11 +4,11 @@ const app = express()
 
 app.use(express.static("public"))
 
-const PORT = process.env.PORT || 3000; // 3000은 로컬 개발 시 사용할 포트
+const PORT = process.env.PORT || 8000; // 3000은 로컬 개발 시 사용할 포트
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-
+const wss=new WebSocketServer({port:8001});
 
 // HTTP 서버 생성
 //const server = http.createServer(app);
@@ -51,5 +51,4 @@ wss.on("connection", (ws, request) => {
 
     console.log(`새로운 유저 접속: ${request.socket.remoteAddress}`);
 });
-
 
