@@ -7,10 +7,7 @@
 
     <script>
       // WebSocket 연결 주소 설정
-      const ws = new WebSocket("ws://localhost:8001");
-
-
-
+      const ws = new WebSocket("wss://immense-falls-11077.herkuapp.com");
       // 메시지 수신
       function receiveMessage(event) {
         const chat = document.createElement("div");
@@ -38,7 +35,7 @@
     </script>
   </head>
   <body>
-    <h1>Hudi Chat</h1>
+    <h1>Chat</h1>
     <div>
       <input
         type="text"
